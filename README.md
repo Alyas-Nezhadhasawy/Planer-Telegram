@@ -47,6 +47,12 @@
 # کلون کردن مخزن
 git clone https://github.com/your-username/telegram-planner-bot.git
 cd telegram-planner-bot
-
-# نصب وابستگی‌ها
 pip install -r requirements.txt
+```
+
+### روش دوم: اجرا روی Paas
+
+#### ۱. پیش‌نیازها
+- Paas Host
+
+Video Libk : ---
