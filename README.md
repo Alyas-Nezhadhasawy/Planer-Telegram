@@ -1,8 +1,8 @@
-# 🤖 ربات تلگرام برنامه‌ریز هوشمند روزانه
+# 🤖 Daily Planner AI Telegram Bot
 
-> To continue in English, [click here](README.md).
+> برای ادامه دادن با زبان فارسی [کلیک کنید](README.fa.md).
 
-یک ربات تلگرام هوشمند که با کمک هوش مصنوعی، برنامه زمان‌بندی روزانه منطقی و قابل‌اجرا برای تسک‌های شما می‌سازد، وضعیت روحی، انرژی و نتایج تست‌های روزانه را ثبت می‌کند و به‌صورت خودکار گزارش پیشرفت را برای گروه مشاور/استاد ارسال می‌کند — همه اینها با پشتیبانی کامل از تقویم شمسی.
+An AI-powered Telegram bot that builds smart, realistic daily study/task schedules, tracks daily mood, energy, and test results, and automatically reports progress to a consultant/mentor group — all with full Persian (Jalali) calendar support.
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)
 ![python-telegram-bot](https://img.shields.io/badge/python--telegram--bot-20%2B-2CA5E0?logo=telegram&logoColor=white)
@@ -11,123 +11,123 @@
 
 ---
 
-## ✨ امکانات
+## ✨ Features
 
-- **🧠 ساخت برنامه با هوش مصنوعی** — از روی لیست تسک‌های شما، یک برنامه زمان‌بندی منطقی و اصولی می‌سازد؛ با زنجیره‌ای هوشمند از سه سرویس هوش مصنوعی به‌عنوان پشتیبان یکدیگر:
-  1. **Google Gemini** (مدل `gemini-1.5-flash`)
-  2. **OpenRouter** (مدل رایگان Qwen)
-  3. **python-tgpt** (کاملاً رایگان و بدون نیاز به کلید API)
-  4. در نهایت، یک زمان‌بند مبتنی بر قانون به‌صورت داخلی، تا ربات **هیچ‌وقت بدون برنامه نماند**.
-- **📅 پشتیبانی کامل از تقویم شمسی** — تمام تاریخ‌ها، برنامه‌ها و گزارش‌ها با استفاده از کتابخانه `jdatetime` و بر اساس تقویم جلالی مدیریت می‌شوند.
-- **🗂️ برنامه‌های چندروزه** — امکان ساخت برنامه‌های مطالعاتی/کاری چندروزه، با لیست تسک مجزا برای هر روز.
-- **📊 چک‌این و گزارش روزانه** — کاربران ساعت بیداری/خواب، وضعیت روحی، سطح انرژی و نتایج تست‌های تمرینی (درست/غلط/درصد) خود را ثبت می‌کنند.
-- **👥 گزارش‌دهی به گروه مشاور** — یک گروه تلگرامی را به‌عنوان کانال «مشاور» متصل کنید؛ ربات هر شب ساعت ۲۳:۰۰ به وقت تهران، به‌صورت خودکار گزارش روزانه هر کاربر را برای آن گروه ارسال می‌کند (یا با دستور `/ft` به‌صورت آنی).
-- **🔐 کنترل دسترسی مبتنی بر نقش** — سه نقش `owner` (مالک)، `admin` (ادمین) و `user` (کاربر). کاربران جدید باید توسط مالک تأیید شوند، یا مالک می‌تواند با یک توکن مخفی نقش خود را ادعا کند.
-- **💾 ذخیره‌سازی پایدار** — تمام داده‌ها (کاربران، برنامه‌ها، تسک‌ها، گزارش‌ها، وضعیت مکالمه) در یک دیتابیس محلی SQLite (`planner.db`) ذخیره می‌شوند.
-- **🖱️ منوی دکمه‌ای تعاملی** — رابط کاربری کاملاً مبتنی بر دکمه‌های اینلاین — نیازی به حفظ کردن دستورات نیست.
+- **🧠 AI-Generated Schedules** — Automatically builds a logical, time-boxed daily schedule from your task list, with a smart fallback chain across three AI providers:
+  1. **Google Gemini** (`gemini-1.5-flash`)
+  2. **OpenRouter** (free Qwen model)
+  3. **python-tgpt** (free, no API key required)
+  4. A built-in rule-based scheduler as the final fallback, so the bot **never fails to produce a schedule**.
+- **📅 Persian (Jalali) Calendar Support** — All dates, plans, and reports are handled using the Jalali calendar via `jdatetime`.
+- **🗂️ Multi-Day Plans** — Create study/work plans spanning multiple days, each with its own task list.
+- **📊 Daily Check-in & Reporting** — Users log wake/sleep time, mood, energy level, and practice-test results (correct/wrong/accuracy).
+- **👥 Consultant Group Reports** — Link a Telegram group as a "consultant" channel; the bot automatically sends each user's daily report there every night (23:00 Tehran time), or on demand via `/ft`.
+- **🔐 Role-Based Access Control** — `owner`, `admin`, and `user` roles. New users must be approved by the owner, or the owner can claim their role with a secret token.
+- **💾 Persistent Storage** — All data (users, plans, tasks, logs, states) is stored in a local SQLite database (`planner.db`).
+- **🖱️ Inline Keyboard Menu** — Fully interactive, button-driven UI — no need to memorize commands.
 
 ---
 
-## 🛠️ تکنولوژی‌های استفاده‌شده
+## 🛠️ Tech Stack
 
-| بخش | کتابخانه |
+| Component | Library |
 |---|---|
-| فریم‌ورک ربات تلگرام | [`python-telegram-bot`](https://github.com/python-telegram-bot/python-telegram-bot) |
-| کلاینت HTTP | `httpx` |
-| تقویم شمسی | `jdatetime` |
-| هوش مصنوعی — Google Gemini | `google-generativeai` |
-| هوش مصنوعی — OpenRouter | `openai` (سازگار با OpenRouter) |
-| هوش مصنوعی — پشتیبان رایگان | `python-tgpt` |
-| متغیرهای محیطی | `python-dotenv` |
-| دیتابیس | `sqlite3` (داخلی پایتون) |
+| Telegram Bot Framework | [`python-telegram-bot`](https://github.com/python-telegram-bot/python-telegram-bot) |
+| HTTP Client | `httpx` |
+| Jalali Calendar | `jdatetime` |
+| AI — Google Gemini | `google-generativeai` |
+| AI — OpenRouter | `openai` (OpenRouter-compatible client) |
+| AI — Free fallback | `python-tgpt` |
+| Environment Variables | `python-dotenv` |
+| Database | `sqlite3` (built-in) |
 
 ---
 
-## 🤖 دستورات ربات
+## 🤖 Bot Commands
 
-| دستور | توضیح | سطح دسترسی |
+| Command | Description | Access |
 |---|---|---|
-| `/start` | شروع ربات / باز کردن منوی اصلی | همه |
-| `/claimtoken <token>` | ادعای مالکیت ربات با توکن مخفی `OWNER_TOKEN` | همه (فقط یک‌بار) |
-| `/adduser <@username یا id>` | اعطای دسترسی به یک کاربر | فقط مالک |
-| `/setgroup` | تنظیم گروه فعلی به‌عنوان گروه گزارش/مشاور این کاربر (باید **داخل گروه** اجرا شود) | کاربران مجاز |
-| `/cleargroup` | حذف اتصال گروه مشاور | کاربران مجاز |
-| `/ft` | ارسال فوری گزارش امروز به گروه مشاور | کاربران مجاز |
-| `/state` | نمایش وضعیت فعلی مکالمه (برای دیباگ) | کاربران مجاز |
-| `/debug` | نمایش اطلاعات دیباگ داخلی | کاربران مجاز |
+| `/start` | Start the bot / open the main menu | Everyone |
+| `/claimtoken <token>` | Claim ownership of the bot with the secret `OWNER_TOKEN` | Everyone (once) |
+| `/adduser <@username\|id>` | Grant a user access to the bot | Owner only |
+| `/setgroup` | Set the current group as this user's consultant/report group (run **inside** the group) | Authorized users |
+| `/cleargroup` | Remove the linked consultant group | Authorized users |
+| `/ft` | Force-send today's report to the consultant group right now | Authorized users |
+| `/state` | Show the current conversation state (debugging) | Authorized users |
+| `/debug` | Show internal debug information | Authorized users |
 
 ---
 
-## 📋 پیش‌نیازها
+## 📋 Requirements
 
-- پایتون نسخه **۳.۱۰ به بالا**
-- یک توکن ربات تلگرام از [@BotFather](https://t.me/BotFather)
-- (اختیاری ولی توصیه‌شده) کلید API رایگان برای **حداقل یکی** از سرویس‌های هوش مصنوعی:
-  - [Google AI Studio](https://aistudio.google.com/) → کلید Gemini
-  - [OpenRouter](https://openrouter.ai/) → کلید API
-  - اگر هیچ‌کدام تنظیم نشوند، ربات به‌صورت خودکار به سراغ `python-tgpt` (رایگان) و در نهایت زمان‌بند داخلی مبتنی بر قانون می‌رود.
+- Python **3.10+**
+- A Telegram bot token from [@BotFather](https://t.me/BotFather)
+- (Optional, but recommended) a free API key for **at least one** AI provider:
+  - [Google AI Studio](https://aistudio.google.com/) → Gemini API key
+  - [OpenRouter](https://openrouter.ai/) → API key
+  - If neither is set, the bot automatically falls back to `python-tgpt` (free) and, ultimately, a built-in rule-based scheduler.
 
 ---
 
-## 🚀 نصب و راه‌اندازی
+## 🚀 Installation
 
-هر کدام از روش‌های زیر که برایتان مناسب‌تر است را انتخاب کنید.
+Choose whichever setup fits you best.
 
-### روش اول — VPS / سیستم شخصی (Self PC)
+### Method 1 — VPS / Self-Hosted PC
 
-ربات را روی سرور مجازی لینوکسی، سیستم شخصی (ویندوز/لینوکس/مک) یا حتی رزبری‌پای خودتان اجرا کنید.
+Run the bot yourself on a Linux VPS, a Windows/Linux/macOS PC, or a Raspberry Pi.
 
-1. **کلون کردن ریپازیتوری**
+1. **Clone the repository**
    ```bash
    git clone https://github.com/<your-username>/<your-repo>.git
    cd <your-repo>
    ```
 
-2. **ساخت و فعال‌سازی محیط مجازی (venv)** (توصیه‌شده)
+2. **Create and activate a virtual environment** (recommended)
    ```bash
    python3 -m venv venv
-   # لینوکس / مک
+   # Linux / macOS
    source venv/bin/activate
-   # ویندوز
+   # Windows
    venv\Scripts\activate
    ```
 
-3. **نصب پکیج‌های موردنیاز**
+3. **Install dependencies**
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **تنظیم متغیرهای محیطی**
+4. **Configure environment variables**
 
-   فایل نمونه را کپی کرده و مقادیر خودتان را وارد کنید:
+   Copy the example file and fill in your own values:
    ```bash
    cp .env.example .env
    ```
-   سپس فایل `.env` را ویرایش کنید (به جدول [پیکربندی](#-پیکربندی) در پایین مراجعه کنید).
+   Then edit `.env` (see the [Configuration](#-configuration) table below).
 
-5. **اجرای ربات**
+5. **Run the bot**
    ```bash
    python bot.py
    ```
 
-6. **روشن نگه‌داشتن ربات به‌صورت ۲۴ ساعته (مخصوص VPS)**
+6. **Keep it running 24/7 (VPS only)**
 
-   چون ربات تلگرام باید همیشه در حال اجرا باشد، از یک مدیر پردازش (process manager) استفاده کنید تا با ری‌استارت سرور یا قطع اتصال SSH متوقف نشود. یکی از روش‌های زیر را انتخاب کنید:
+   Since a Telegram bot needs to run continuously, use a process manager so it survives reboots and SSH disconnects. Pick one:
 
-   - **screen یا tmux** (ساده و سریع)
+   - **screen / tmux** (quick & simple)
      ```bash
      screen -S telegram-bot
      python bot.py
-     # جدا کردن نشست با Ctrl+A سپس D
+     # detach with Ctrl+A then D
      ```
-   - **pm2** (توصیه‌شده برای محیط عملیاتی)
+   - **pm2** (recommended for production)
      ```bash
      npm install -g pm2
      pm2 start bot.py --interpreter python3 --name daily-planner-bot
      pm2 save
      pm2 startup
      ```
-   - **سرویس systemd** (پایدارترین روش روی لینوکس)
+   - **systemd service** (most robust on Linux)
      ```ini
      # /etc/systemd/system/daily-planner-bot.service
      [Unit]
@@ -148,49 +148,42 @@
      sudo systemctl enable --now daily-planner-bot
      ```
 
-### روش دوم — هاست PaaS (پلتفرم‌های میزبانی پایتون)
+### Method 2 — PaaS (Python hosting platforms)
 
-اجرای ربات بدون نیاز به مدیریت سرور، با استفاده از یک پلتفرم PaaS مناسب پایتون.
+Deploy without managing a server, using any Python-friendly PaaS (e.g. Railway, Render, Heroku-style platforms, or similar).
 
-برای این روش، پیشنهاد ما استفاده از سرویس **پارس‌پک (ParsPack)** است که یکی از گزینه‌های شناخته‌شده داخلی برای میزبانی ربات‌های پایتون/تلگرام محسوب می‌شود.
-
-📺 **آموزش تصویری راه‌اندازی روی پارس‌پک:**
-> [لینک ویدیوی یوتیوب را اینجا قرار دهید]
-
-مراحل کلی راه‌اندازی روی هر پلتفرم PaaS پایتونی:
-
-1. **ریپازیتوری را روی گیت‌هاب پوش کنید** (به بخش [پوش کردن روی گیت‌هاب](#-پوش-کردن-روی-گیت‌هاب) در پایین مراجعه کنید).
-2. یک **سرویس پایتون جدید** در پنل پارس‌پک (یا هر PaaS دیگر) بسازید و آن را به ریپازیتوری گیت‌هاب خود متصل کنید.
-3. **دستور اجرا (Start Command)** را روی مقدار زیر تنظیم کنید:
+1. **Push this repository to GitHub** (see the [Push to GitHub](#-pushing-to-github) section below).
+2. **Create a new Python service** on your PaaS of choice and connect it to your GitHub repository.
+3. **Set the start command** to:
    ```bash
    python bot.py
    ```
-4. **متغیرهای محیطی** را از جدول [پیکربندی](#-پیکربندی) مستقیماً در پنل تنظیمات پلتفرم وارد کنید (فایل `.env` خودتان را آپلود نکنید — مقادیر را در بخش Environment Variables پلتفرم تنظیم کنید).
-5. در صورت امکان، یک **دیسک/ولوم پایدار (Persistent Storage)** برای مسیر اجرای برنامه فعال کنید تا فایل دیتابیس `planner.db` هنگام هر بار دیپلوی جدید پاک نشود.
-6. **دیپلوی کنید.** پلتفرم به‌صورت خودکار `requirements.txt` را نصب کرده و ربات را اجرا می‌کند.
+4. **Add environment variables** from the [Configuration](#-configuration) table in your PaaS dashboard (do **not** upload your `.env` file — set the variables directly in the platform's settings).
+5. **Enable a persistent disk/volume** for the app's working directory if your platform supports it, so `planner.db` (SQLite) isn't wiped on every redeploy. If your PaaS uses an ephemeral filesystem, consider mounting a volume at the bot's working directory.
+6. **Deploy.** The platform will install `requirements.txt` automatically and start the bot.
 
-> 💡 این ربات از روش Long Polling (`app.run_polling()`) استفاده می‌کند، بنابراین نیازی به دامنه، آدرس عمومی یا تنظیم Webhook نیست — فقط کافیست پلتفرم بتواند یک پروسه پایتون را زنده نگه دارد.
+> 💡 The bot uses long polling (`app.run_polling()`), so no public URL, domain, or webhook configuration is required — it works on any platform that can simply keep a Python process running.
 
 ---
 
-## ⚙️ پیکربندی
+## ⚙️ Configuration
 
-یک فایل `.env` در ریشه پروژه بسازید (بر اساس `.env.example`) و مقادیر زیر را در آن قرار دهید:
+Create a `.env` file in the project root (see `.env.example`) with the following variables:
 
-| متغیر | الزامی | توضیح |
+| Variable | Required | Description |
 |---|:---:|---|
-| `BOT_TOKEN` | ✅ | توکن ربات تلگرام شما از [@BotFather](https://t.me/BotFather) |
-| `GEMINI_API_KEY` | ⬜ | کلید API گوگل جمینای (باید با `AIza` شروع شود) — فعال‌کننده زمان‌بندی هوشمند با Gemini |
-| `OPENROUTER_API_KEY` | ⬜ | کلید API اوپن‌روتر (باید با `sk-or` شروع شود) — در صورت نبود Gemini استفاده می‌شود |
-| `CONSULTANT_GROUP_ID` | ⬜ | آیدی پیش‌فرض گروه مشاور (این مقدار به‌صورت جداگانه برای هر کاربر هم با دستور `/setgroup` قابل تنظیم است) |
-| `OWNER_USERNAME` | ✅ | یوزرنیم تلگرام مالک ربات (بدون `@`) |
-| `OWNER_TOKEN` | ✅ | یک توکن مخفی که یک‌بار با دستور `/claimtoken <token>` برای ادعای نقش مالک استفاده می‌شود |
+| `BOT_TOKEN` | ✅ | Your Telegram bot token from [@BotFather](https://t.me/BotFather) |
+| `GEMINI_API_KEY` | ⬜ | Google Gemini API key (must start with `AIza`) — enables AI scheduling via Gemini |
+| `OPENROUTER_API_KEY` | ⬜ | OpenRouter API key (must start with `sk-or`) — used if Gemini isn't configured |
+| `CONSULTANT_GROUP_ID` | ⬜ | Default consultant group chat ID (can also be set per-user via `/setgroup`) |
+| `OWNER_USERNAME` | ✅ | Telegram **username** (without `@`) of the bot owner |
+| `OWNER_TOKEN` | ✅ | A secret token used once with `/claimtoken <token>` to claim the owner role |
 
-> ⚠️ **هرگز فایل واقعی `.env` خودتان را روی گیت‌هاب پوش نکنید.** اطلاعات حساس باید همیشه خارج از ریپازیتوری بماند — فایل `.gitignore` این پروژه از قبل `.env` را نادیده می‌گیرد.
+> ⚠️ **Never commit your real `.env` file to GitHub.** Keep secrets out of version control — this repo's `.gitignore` already excludes `.env`.
 
 ---
 
-## 📤 پوش کردن روی گیت‌هاب
+## 📤 Pushing to GitHub
 
 ```bash
 git init
@@ -201,40 +194,40 @@ git remote add origin https://github.com/<your-username>/<your-repo>.git
 git push -u origin main
 ```
 
-قبل از اولین کامیت، مطمئن شوید `.env` داخل فایل `.gitignore` قرار دارد تا توکن ربات و کلیدهای API شما هرگز به‌صورت عمومی منتشر نشود.
+Make sure `.env` is listed in `.gitignore` before your first commit so your bot token and API keys are never exposed publicly.
 
 ---
 
-## 📁 ساختار پروژه
+## 📁 Project Structure
 
 ```
 .
-├── bot.py              # فایل اصلی ربات (هندلرها، منطق هوش مصنوعی، دیتابیس، زمان‌بند)
-├── requirements.txt    # پکیج‌های موردنیاز پایتون
-├── .env.example         # نمونه متغیرهای محیطی (کپی کنید در .env)
-├── planner.db           # دیتابیس SQLite (به‌صورت خودکار در اولین اجرا ساخته می‌شود)
-├── README.md             # مستندات انگلیسی
-└── README.fa.md          # مستندات فارسی (همین فایل)
+├── bot.py              # Main bot application (handlers, AI logic, database, scheduler)
+├── requirements.txt    # Python dependencies
+├── .env.example         # Example environment variables (copy to .env)
+├── planner.db           # SQLite database (auto-created on first run)
+├── README.md             # English documentation (this file)
+└── README.fa.md          # Persian (فارسی) documentation
 ```
 
 ---
 
-## 🧩 نحوه کار ربات — نگاه کلی
+## 🧩 How It Works — Quick Overview
 
-1. کاربر دستور `/start` را می‌فرستد و پس از تأیید توسط مالک (یا با `/claimtoken`)، به منوی اصلی دسترسی پیدا می‌کند.
-2. یک **برنامه چندروزه** با عنوان، بازه تاریخ و لیست تسک برای هر روز می‌سازد.
-3. هر روز، کاربر یک **چک‌این روزانه** ثبت می‌کند: ساعت بیداری/خواب، وضعیت روحی، انرژی و نتایج تست‌های تمرینی.
-4. ماژول هوش مصنوعی، یک **برنامه زمان‌بندی** شخصی‌سازی‌شده برای تسک‌های همان روز می‌سازد (با احتساب استراحت، ناهار، وقت نماز و محدودیت ساعات مطالعه).
-5. ساعت ۲۳:۰۰ به وقت تهران، ربات به‌صورت خودکار **گزارش روزانه** را برای گروه مشاور متصل‌شده ارسال می‌کند — یا کاربر می‌تواند با `/ft` آن را فوراً ارسال کند.
-
----
-
-## 📄 مجوز
-
-این پروژه تحت [مجوز MIT](LICENSE) منتشر شده است.
+1. A user sends `/start` and, once approved by the owner (or via `/claimtoken`), gets access to the main menu.
+2. They create a multi-day **plan** with a title, date range, and tasks for each day.
+3. Each day, the user submits a **daily check-in**: wake/sleep time, mood, energy, and practice-test results.
+4. The AI handler generates a personalized, time-boxed **schedule** for the day's tasks (breaks, lunch, prayer time, and study-session limits are all factored in).
+5. At 23:00 Tehran time, the bot automatically compiles and sends a **daily report** to the user's linked consultant group — or the user can trigger it instantly with `/ft`.
 
 ---
 
-## 🙋 پشتیبانی
+## 📄 License
 
-در صورت بروز مشکل، لطفاً یک [ایشو (issue)](../../issues) در همین ریپازیتوری باز کنید.
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 🙋 Support
+
+If you run into issues, please open an [issue](../../issues) on this repository.
