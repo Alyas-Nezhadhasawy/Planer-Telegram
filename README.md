@@ -1,8 +1,8 @@
 # 🤖 Daily Planner AI Telegram Bot
 
-> برای ادامه دادن با زبان فارسی [کلیک کنید](README.fa.md).
+> برای ادامه دادن با زبان فارسی <a href="">کلیک کنید</a>.
 
-An AI-powered Telegram bot that builds smart, realistic daily study/task schedules, tracks daily mood, energy, and test results, and automatically reports progress to a consultant/mentor group — all with full Persian (Jalali) calendar support.
+An AI-powered Telegram bot that builds smart, realistic daily study/task schedules, tracks daily mood, energy, and test results, and automatically reports progress to a consultant/mentor group — using the Gregorian calendar.
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)
 ![python-telegram-bot](https://img.shields.io/badge/python--telegram--bot-20%2B-2CA5E0?logo=telegram&logoColor=white)
@@ -18,7 +18,7 @@ An AI-powered Telegram bot that builds smart, realistic daily study/task schedul
   2. **OpenRouter** (free Qwen model)
   3. **python-tgpt** (free, no API key required)
   4. A built-in rule-based scheduler as the final fallback, so the bot **never fails to produce a schedule**.
-- **📅 Persian (Jalali) Calendar Support** — All dates, plans, and reports are handled using the Jalali calendar via `jdatetime`.
+- **📅 Gregorian Calendar Support** — All dates, plans, and reports are handled using the standard Gregorian calendar.
 - **🗂️ Multi-Day Plans** — Create study/work plans spanning multiple days, each with its own task list.
 - **📊 Daily Check-in & Reporting** — Users log wake/sleep time, mood, energy level, and practice-test results (correct/wrong/accuracy).
 - **👥 Consultant Group Reports** — Link a Telegram group as a "consultant" channel; the bot automatically sends each user's daily report there every night (23:00 Tehran time), or on demand via `/ft`.
@@ -34,7 +34,7 @@ An AI-powered Telegram bot that builds smart, realistic daily study/task schedul
 |---|---|
 | Telegram Bot Framework | [`python-telegram-bot`](https://github.com/python-telegram-bot/python-telegram-bot) |
 | HTTP Client | `httpx` |
-| Jalali Calendar | `jdatetime` |
+| Gregorian Calendar | Python `datetime` (standard library) |
 | AI — Google Gemini | `google-generativeai` |
 | AI — OpenRouter | `openai` (OpenRouter-compatible client) |
 | AI — Free fallback | `python-tgpt` |
