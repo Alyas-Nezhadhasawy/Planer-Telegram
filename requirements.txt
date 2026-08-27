@@ -1,0 +1,20 @@
+# کتابخانه اصلی ربات تلگرام
+python-telegram-bot>=20.0
+
+# درخواست‌های HTTP
+httpx>=0.27.0
+
+# تبدیل تاریخ میلادی به شمسی
+jdatetime>=4.0.0
+
+# هوش مصنوعی Gemini
+google-generativeai>=0.3.0
+
+# هوش مصنوعی OpenRouter (از طریق کتابخانه openai)
+openai>=1.0.0
+
+# هوش مصنوعی رایگان (python-tgpt)
+python-tgpt>=0.8.0
+
+# مدیریت متغیرهای محیطی
+python-dotenv>=1.0.0
