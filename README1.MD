@@ -1,6 +1,6 @@
 # 🤖 Daily Planner AI Telegram Bot
 
-> برای ادامه دادن با زبان فارسی [کلیک کنید](README.fa.md).
+> برای ادامه دادن با زبان فارسی <a href="">کلیک کنید</a>.
 
 An AI-powered Telegram bot that builds smart, realistic daily study/task schedules, tracks daily mood, energy, and test results, and automatically reports progress to a consultant/mentor group — all with full Persian (Jalali) calendar support.
 
